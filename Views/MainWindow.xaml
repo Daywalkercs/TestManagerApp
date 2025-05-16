@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl d:ItemsSource="{d:SampleData ItemCount=3}"  ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab} ">
+        <TabControl d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Title}"/>
