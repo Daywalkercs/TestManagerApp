@@ -11,6 +11,6 @@ namespace TestManagerApp.Models
     {
         public string? Title { get; set; }
         public string? Description { get; set; }
-        public UserControl? TaskContent { get; set; } // Представление
+        public UserControl? TaskContent { get; set; } // Содержимое вкладки
     }
 }

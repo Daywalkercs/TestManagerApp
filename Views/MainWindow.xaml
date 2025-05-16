@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestManagerApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="5">
         <TabControl d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
@@ -19,6 +19,14 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
+
+        <Button Content="Открыть задание"
+                Width="100"
+                Height="30"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Command="{Binding OpenTaskCommand}"/>
+
 
     </Grid>
 </Window>

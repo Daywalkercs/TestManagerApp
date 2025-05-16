@@ -6,9 +6,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using TestManagerApp.Models;
 using TestManagerApp.Services;
+using TestManagerApp.Views.TasksViews;
 
 namespace TestManagerApp.ViewModels
 {
@@ -27,7 +29,7 @@ namespace TestManagerApp.ViewModels
             }
         }
 
-        ICommand OpenTaskCommand { get; }
+        public ICommand OpenTaskCommand { get; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -38,15 +40,16 @@ namespace TestManagerApp.ViewModels
 
         private void OpenTask()
         {
-            TestTask tesk = new TestTask
+            TestTask teskTab = new TestTask
             {
                 Title = "Задание №1",
                 Description = "Описание задания №1",
-                //TaskContent = new Tesk1View()
+                TaskContent = new FirstTaskTest()
             };
 
-            Tabs.Add(tesk);
-            SelectedTab = tesk;
+            Tabs.Add(teskTab);
+            SelectedTab = teskTab;
+            MessageBox.Show("OpenTask work!");
         }
 
         private void OnPropertyChanged([CallerMemberName] string? name = null)
