@@ -8,9 +8,9 @@ namespace TestManagerApp.Models
 {
     public class TestAssignment
     {
-        public string? Id { get; set; }
-        public string? Description { get; set; }
-        public string? ProjectPath { get; set; }
+        public Guid Id { get; set; }
+        public string Description { get; set; } = "";
+        public string ProjectPath { get; set; } = "";
         public DateTime DateTimeAdded { get; set; }
         public bool IsCompleted { get; set; }
     }

@@ -23,9 +23,9 @@
         <Button Content="Открыть задание"
                 Width="100"
                 Height="30"
-                HorizontalAlignment="Left"
-                Margin="10"
-                Command="{Binding OpenTaskCommand}"/>
+                HorizontalAlignment="Center"
+                Margin="0,100,0,0"
+                Command="{Binding OpenTaskCommand}" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
 
 
     </Grid>
