@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,6 +15,7 @@ namespace TestManagerApp.ViewModels
     public class FirstTaskTestViewModel : INotifyPropertyChanged
     {
         private TestAssignment _testAssignment;
+        private static int _assignmentCounter = 1;
 
         public Dictionary<string, string> AssignmentProperties
         {
@@ -47,8 +49,10 @@ namespace TestManagerApp.ViewModels
 
         public FirstTaskTestViewModel()
         {
+            
             _testAssignment = new TestAssignment()
             {
+                Number = _assignmentCounter++,
                 Id = Guid.NewGuid(),
                 DateTimeAdded = DateTime.Now,
                 Description = "Описание",
@@ -63,13 +67,13 @@ namespace TestManagerApp.ViewModels
         {
             return new Dictionary<string, string>
             {
-                //["Id"] = (int)(assignment.Id),
+                ["Number"] = assignment.Number.ToString(),
                 ["Id"] = assignment.Id.ToString(),
                 ["Description"] = assignment.Description.ToString(),
-                ["ProjectPath"] = assignment.ProjectPath.ToString(),
+                ["ProjectPath"] = assignment.ProjectPath,
                 ["DateTimeAdded"] = assignment.DateTimeAdded.ToString(),
-                ["IsCompleted"] = assignment.IsCompleted.ToString(),
-                
+                ["IsCompleted"] = assignment.IsCompleted ? "Да" : "Нет"
+
             };
         }
 

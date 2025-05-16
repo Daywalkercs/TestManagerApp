@@ -8,6 +8,8 @@ namespace TestManagerApp.Models
 {
     public class TestAssignment
     {
+        public int Number {  get; set; }
+
         public Guid Id { get; set; }
         public string Description { get; set; } = "";
         public string ProjectPath { get; set; } = "";
