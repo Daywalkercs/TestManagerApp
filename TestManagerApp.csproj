@@ -8,4 +8,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Icons\Menu.ico" />
+    <None Remove="Icons\New.ico" />
+    <None Remove="Icons\Open.ico" />
+    <None Remove="Icons\OpenFile.ico" />
+    <None Remove="Icons\Save.ico" />
+    <None Remove="Icons\SaveAs.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\Menu.ico" />
+    <Resource Include="Icons\New.ico" />
+    <Resource Include="Icons\OpenFile.ico" />
+    <Resource Include="Icons\Save.ico" />
+    <Resource Include="Icons\SaveAs.ico" />
+  </ItemGroup>
+
 </Project>

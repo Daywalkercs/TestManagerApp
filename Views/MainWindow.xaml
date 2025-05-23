@@ -5,9 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestManagerApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="800" 
+        Width="1000">
     <Grid Margin="5">
-        <TabControl d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,5">
+            <Menu VerticalAlignment="Center" Background="Transparent">
+
+                <MenuItem FontSize="14" Height="25">
+                    <MenuItem.Header>
+                        <Image Source="/Icons/Menu.ico" HorizontalAlignment="Center" Width="Auto" Height="Auto"/>
+                    </MenuItem.Header>
+
+
+                    <MenuItem Header="Новое задание" Command="{Binding NewTask}">
+                        <MenuItem.Icon>
+                            <Image Source="/Icons/New.ico" HorizontalAlignment="Left" Width="auto" Height="auto"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Открыть" Command="{Binding OpenTasksFile}">
+                        <MenuItem.Icon>
+                            <Image Source="/Icons/OpenFile.ico" HorizontalAlignment="Left" Width="auto" Height="auto"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Сохранить" Command="{Binding SaveTasksFile}">
+                        <MenuItem.Icon>
+                            <Image Source="/Icons/Save.ico" HorizontalAlignment="Left" Width="auto" Height="auto"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Сохранить как...">
+                        <MenuItem.Icon>
+                            <Image Source="/Icons/SaveAs.ico" HorizontalAlignment="Left" Width="auto" Height="auto"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                </MenuItem>
+            </Menu>
+            <Button Content="Открыть задание"
+                    Width="150"
+                    Height="25"
+                    FontSize="14"
+                    Command="{Binding OpenTaskCommand}"/>
+            <Button Content="Кнопка"
+                    Width="100"
+                    Height="25"
+                    FontSize="14"/>            
+            <Button Content="Кнопка"
+                    Width="100"
+                    Height="25"
+                    FontSize="14"/>
+
+            <ComboBox Width="300" 
+                      Height="25" 
+                      IsEditable="True"
+                      d:Text="Выберите или введите название задания"
+                      Text="{Binding ComboBoxText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding Tabs}" 
+                      SelectedItem="{Binding SelectedTab}"
+                      DisplayMemberPath="Title"
+                      FontSize="14"
+                      />
+
+
+
+        </StackPanel>
+
+
+        <TabControl Grid.Row="1"
+                    d:ItemsSource="{d:SampleData ItemCount=3}"
+                    ItemsSource="{Binding Tabs}"
+                    
+                    SelectedItem="{Binding SelectedTab}"
+                    >
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Title}"/>
@@ -20,12 +96,8 @@
             </TabControl.ContentTemplate>
         </TabControl>
 
-        <Button Content="Открыть задание"
-                Width="100"
-                Height="30"
-                HorizontalAlignment="Center"
-                Margin="0,100,0,0"
-                Command="{Binding OpenTaskCommand}" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+
+
 
 
     </Grid>
